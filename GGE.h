@@ -5,7 +5,14 @@
 
 namespace GGE
 {
-	int initialize(int argc, char *argv[])
+
+	namespace
+	{
+		SDL_Window *window;
+		SDL_Renderer *renderer;
+	}
+
+	int initialize(const char* title, const char* iconPath)
 	{
 		if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 		{
@@ -13,7 +20,7 @@ namespace GGE
 			return 1;
 		}
 
-		SDL_Window *window = SDL_CreateWindow("Game", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
+		window = SDL_CreateWindow(title, 100, 100, 640, 480, SDL_WINDOW_SHOWN);
 		if (window == nullptr)
 		{
 			std::cout << "SDL_CreateWindow threw error: " << SDL_GetError() << std::endl;
@@ -21,7 +28,15 @@ namespace GGE
 			return 1;
 		}
 
-		SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+		SDL_Surface *bmp = SDL_LoadBMP(iconPath);
+		if (bmp != nullptr)
+		{
+			SDL_SetWindowIcon(window, bmp);
+			SDL_FreeSurface(bmp);
+		}
+		else std::cout << "Unable to load icon!" << std::endl;
+
+		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 		if (renderer == nullptr)
 		{
 			SDL_DestroyWindow(window);
@@ -30,6 +45,11 @@ namespace GGE
 			return 1;
 		}
 
+		return 0;
+	}
+
+	void startLoop()
+	{
 		SDL_Event event;
 
 		while (1)
@@ -44,10 +64,13 @@ namespace GGE
 		}
 
 	quit:
+		shutdownEngine();
+	}
+
+	void shutdownEngine()
+	{
 		SDL_DestroyRenderer(renderer);
 		SDL_DestroyWindow(window);
 		SDL_Quit();
-
-		return 0;
 	}
 }
