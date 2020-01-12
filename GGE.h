@@ -6,6 +6,8 @@
 #include "GGE_event.h"
 #include "GGE_game.h"
 #include "GGE_node.h"
+#include "GGE_world.h"
+#include "GGE_input.h"
 
 
 namespace GGE

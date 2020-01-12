@@ -157,6 +157,7 @@
     <ClInclude Include="GGE.h" />
     <ClInclude Include="GGE_event.h" />
     <ClInclude Include="GGE_game.h" />
+    <ClInclude Include="GGE_input.h" />
     <ClInclude Include="GGE_node.h" />
     <ClInclude Include="GGE_world.h" />
     <ClInclude Include="stdafx.h" />
@@ -166,6 +167,7 @@
     <ClCompile Include="GGE.cpp" />
     <ClCompile Include="GGE_event.cpp" />
     <ClCompile Include="GGE_game.cpp" />
+    <ClCompile Include="GGE_input.cpp" />
     <ClCompile Include="GGE_node.cpp" />
     <ClCompile Include="GGE_world.cpp" />
     <ClCompile Include="stdafx.cpp">

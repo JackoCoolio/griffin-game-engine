@@ -36,6 +36,9 @@
     <ClInclude Include="GGE_world.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GGE_input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -54,6 +57,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GGE_world.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GGE_input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
