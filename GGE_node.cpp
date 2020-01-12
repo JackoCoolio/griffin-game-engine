@@ -2,16 +2,16 @@
 #include "GGE_node.h"
 
 
-Node::Node()
+GGE::Node::Node()
 {
 }
 
 
-Node::~Node()
+GGE::Node::~Node()
 {
 }
 
-void Node::init()
+void GGE::Node::init()
 {
 	for (auto& node : nodes)
 	{
@@ -19,7 +19,7 @@ void Node::init()
 	}
 }
 
-void Node::update(float delta)
+void GGE::Node::update(float delta)
 {
 	for (auto& node : nodes)
 	{
@@ -27,7 +27,7 @@ void Node::update(float delta)
 	}
 }
 
-void Node::physicsUpdate()
+void GGE::Node::physicsUpdate()
 {
 	for (auto& node : nodes)
 	{
