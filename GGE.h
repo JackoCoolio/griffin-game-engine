@@ -3,6 +3,11 @@
 #include "SDL.h"
 #include <iostream>
 
+#include "GGE_event.h"
+#include "GGE_game.h"
+#include "GGE_node.h"
+
+
 namespace GGE
 {
 
@@ -10,6 +15,7 @@ namespace GGE
 	{
 		SDL_Window *window;
 		SDL_Renderer *renderer;
+		EventManager *eventManager;
 	}
 
 	int initialize(const char* title, const char* iconPath)
@@ -45,6 +51,8 @@ namespace GGE
 			return 1;
 		}
 
+		eventManager = new EventManager();
+
 		return 0;
 	}
 
@@ -56,7 +64,8 @@ namespace GGE
 		{
 			while (SDL_PollEvent(&event))
 			{
-				std::cout << "Event: " << event.type << std::endl;
+				
+				eventManager->registerEvent(event);
 
 				if (event.type == SDL_QUIT)
 					goto quit;
