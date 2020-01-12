@@ -1,16 +1,18 @@
 #pragma once
 
 #include <vector>
+#include "GGE_vector.h"
 
 namespace GGE
 {
 	class Node
 	{
-	private:
+	protected:
+		Vector offset;
 		std::vector<Node> nodes;
 	public:
+		Node(Vector offset);
 		Node();
-		~Node();
 		void init();
 		void update(float delta);
 		void physicsUpdate();

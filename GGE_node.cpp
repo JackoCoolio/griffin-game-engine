@@ -2,13 +2,11 @@
 #include "GGE_node.h"
 
 
+GGE::Node::Node(Vector offset) : offset(offset) {}
+
 GGE::Node::Node()
 {
-}
-
-
-GGE::Node::~Node()
-{
+	offset = Vector{ 0, 0 };
 }
 
 void GGE::Node::init()
