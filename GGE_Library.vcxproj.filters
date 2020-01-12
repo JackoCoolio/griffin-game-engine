@@ -27,12 +27,27 @@
     <ClInclude Include="GGE_event.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GGE_game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GGE_node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GGE_event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GGE_game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GGE_node.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GGE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
