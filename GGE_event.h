@@ -2,11 +2,15 @@
 
 #include "SDL_events.h"
 
-class GGE_EventManager
+namespace GGE
 {
-public:
-	GGE_EventManager();
-	~GGE_EventManager();
-	void registerEvent(SDL_Event &event);
-};
 
+	class EventManager
+	{
+	public:
+		EventManager();
+		~EventManager();
+		void registerEvent(SDL_Event &event);
+	};
+
+}

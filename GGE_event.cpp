@@ -2,17 +2,17 @@
 #include "GGE_event.h"
 
 
-GGE_EventManager::GGE_EventManager()
+EventManager::EventManager()
 {
 
 }
 
-GGE_EventManager::~GGE_EventManager()
+EventManager::~EventManager()
 {
 
 }
 
-void GGE_EventManager::registerEvent(SDL_Event &event)
+void EventManager::registerEvent(SDL_Event &event)
 {
 	// Eventually pass event to input manager, ui manager, etc.
 }
