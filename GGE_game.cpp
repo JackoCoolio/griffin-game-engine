@@ -2,20 +2,20 @@
 #include "GGE_game.h"
 
 
-GGE_game::GGE_game()
+GGE::Game::Game()
 {
 }
 
 
-GGE_game::~GGE_game()
+GGE::Game::~Game()
 {
 }
 
-void GGE_game::init()
+void GGE::Game::init()
 {
 }
 
-void GGE_game::update(double delta)
+void GGE::Game::update(double delta)
 {
 }
 

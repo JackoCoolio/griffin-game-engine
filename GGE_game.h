@@ -1,10 +1,15 @@
 #pragma once
-class GGE_game
-{
-public:
-	GGE_game();
-	~GGE_game();
-	void init();
-	void update(double delta);
-};
 
+namespace GGE
+{
+
+	class Game
+	{
+	public:
+		Game();
+		~Game();
+		void init();
+		void update(double delta);
+	};
+
+}
