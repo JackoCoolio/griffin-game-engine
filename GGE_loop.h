@@ -10,9 +10,9 @@ namespace GGE
 	{
 	private:
 		std::chrono::time_point<std::chrono::high_resolution_clock> last;
-		Game &game;
+		Game *game;
 	public:
-		Loop(Game &game);
+		Loop(Game *game);
 		void init();
 		void doTick();
 	};
