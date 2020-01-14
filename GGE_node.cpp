@@ -32,3 +32,8 @@ void GGE::Node::physicsUpdate()
 		node.physicsUpdate();
 	}
 }
+
+GGE::Vector GGE::Node::getOffset()
+{
+	return offset;
+}

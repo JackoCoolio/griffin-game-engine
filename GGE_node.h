@@ -16,6 +16,7 @@ namespace GGE
 		void init();
 		void update(float delta);
 		void physicsUpdate();
+		Vector getOffset();
 	};
 
 }
