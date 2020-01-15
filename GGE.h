@@ -11,6 +11,7 @@
 #include "GGE_loop.h"
 #include "GGE_vector.h"
 #include "GGE_camera.h"
+#include "GGE_script.h"
 
 namespace GGE
 {

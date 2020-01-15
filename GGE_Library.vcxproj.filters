@@ -45,6 +45,9 @@
     <ClInclude Include="GGE_loop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GGE_script.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "GGE_vector.h"
+#include "GGE_script.h"
 
 namespace GGE
 {
@@ -9,6 +10,7 @@ namespace GGE
 	{
 	protected:
 		Vector offset;
+		std::vector<Script> scripts;
 		std::vector<Node> nodes;
 	public:
 		Node(Vector offset);

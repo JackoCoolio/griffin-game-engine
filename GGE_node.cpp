@@ -11,6 +11,10 @@ GGE::Node::Node()
 
 void GGE::Node::init()
 {
+	for (auto& scr : scripts)
+	{
+		scr.init();
+	}
 	for (auto& node : nodes)
 	{
 		node.init();
@@ -19,6 +23,10 @@ void GGE::Node::init()
 
 void GGE::Node::update(float delta)
 {
+	for (auto& scr : scripts)
+	{
+		scr.update(delta);
+	}
 	for (auto& node : nodes)
 	{
 		node.update(delta);
@@ -27,6 +35,10 @@ void GGE::Node::update(float delta)
 
 void GGE::Node::physicsUpdate()
 {
+	for (auto& scr : scripts)
+	{
+		scr.physicsUpdate();
+	}
 	for (auto& node : nodes)
 	{
 		node.physicsUpdate();
