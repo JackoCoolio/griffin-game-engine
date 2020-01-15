@@ -13,9 +13,16 @@ GGE::Game::~Game()
 
 void GGE::Game::init()
 {
+	currentWorld.init();
 }
 
 void GGE::Game::update(double delta)
 {
+	currentWorld.update(delta);
+}
+
+void GGE::Game::physicsUpdate()
+{
+	currentWorld.physicsUpdate();
 }
 
