@@ -9,7 +9,7 @@ int GGE::initialize(const char* title, const char* iconPath)
 		return 1;
 	}
 
-	window = SDL_CreateWindow(title, 100, 100, 640, 480, SDL_WINDOW_SHOWN);
+	window = SDL_CreateWindow(title, 100, 100, 640, 480, SDL_WINDOW_OPENGL);
 	if (window == nullptr)
 	{
 		std::cout << "SDL_CreateWindow threw error: " << SDL_GetError() << std::endl;
@@ -25,16 +25,11 @@ int GGE::initialize(const char* title, const char* iconPath)
 	}
 	else std::cout << "Unable to load icon!" << std::endl;
 
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-	if (renderer == nullptr)
-	{
-		SDL_DestroyWindow(window);
-		std::cout << "SDL_CreateRenderer threw error: " << SDL_GetError() << std::endl;
-		SDL_Quit();
-		return 1;
-	}
+	context = SDL_GL_CreateContext(window);
 
 	eventManager = new EventManager();
+	game = new Game();
+	gameLoop = new Loop(game);
 
 	return 0;
 }
@@ -53,6 +48,9 @@ void GGE::startLoop()
 			if (event.type == SDL_QUIT)
 				goto quit;
 		}
+
+		gameLoop->doTick();
+		
 	}
 
 quit:
@@ -61,7 +59,7 @@ quit:
 
 void GGE::shutdownEngine()
 {
-	SDL_DestroyRenderer(renderer);
+	SDL_GL_DeleteContext(context);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }

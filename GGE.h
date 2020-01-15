@@ -8,7 +8,9 @@
 #include "GGE_node.h"
 #include "GGE_world.h"
 #include "GGE_input.h"
-
+#include "GGE_loop.h"
+#include "GGE_vector.h"
+#include "GGE_camera.h"
 
 namespace GGE
 {
@@ -16,8 +18,10 @@ namespace GGE
 	namespace
 	{
 		SDL_Window *window;
-		SDL_Renderer *renderer;
+		SDL_GLContext context;
 		EventManager *eventManager;
+		Game *game;
+		Loop *gameLoop;
 	}
 
 	int initialize(const char* title, const char* iconPath);
