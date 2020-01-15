@@ -17,5 +17,5 @@ void GGE::Loop::doTick()
 {
 	std::chrono::nanoseconds sec = std::chrono::duration_cast<std::chrono::nanoseconds>(Clock::now() - last);
 	last = Clock::now();
-	game->update((double)sec.count() / 1000000);
+	game->update((float)sec.count() / 1000000);
 }

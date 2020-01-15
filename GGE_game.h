@@ -15,7 +15,7 @@ namespace GGE
 		Game();
 		~Game();
 		void init();
-		void update(double delta);
+		void update(float delta);
 		void physicsUpdate();
 	};
 

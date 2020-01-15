@@ -16,7 +16,7 @@ void GGE::Game::init()
 	currentWorld.init();
 }
 
-void GGE::Game::update(double delta)
+void GGE::Game::update(float delta)
 {
 	currentWorld.update(delta);
 }
