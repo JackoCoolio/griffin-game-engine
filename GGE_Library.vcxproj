@@ -155,6 +155,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="GGE.h" />
+    <ClInclude Include="GGE_camera.h" />
     <ClInclude Include="GGE_event.h" />
     <ClInclude Include="GGE_game.h" />
     <ClInclude Include="GGE_input.h" />
@@ -168,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GGE.cpp" />
+    <ClCompile Include="GGE_camera.cpp" />
     <ClCompile Include="GGE_event.cpp" />
     <ClCompile Include="GGE_game.cpp" />
     <ClCompile Include="GGE_input.cpp" />

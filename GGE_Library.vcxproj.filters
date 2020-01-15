@@ -39,6 +39,9 @@
     <ClInclude Include="GGE_input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GGE_camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="GGE_vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -69,6 +72,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GGE_input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GGE_camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GGE_vector.cpp">
