@@ -11,9 +11,9 @@ namespace GGE
 	private:
 		std::vector<World> worlds;
 		World currentWorld;
-	public:
 		Game();
-		~Game();
+	public:
+		static Game &getInstance();
 		void init();
 		void update(float delta);
 		void physicsUpdate();

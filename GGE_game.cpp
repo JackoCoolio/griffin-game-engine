@@ -1,14 +1,14 @@
 #include "stdafx.h"
 #include "GGE_game.h"
 
-
 GGE::Game::Game()
 {
 }
 
-
-GGE::Game::~Game()
+GGE::Game &GGE::Game::getInstance()
 {
+	static Game game;
+	return game;
 }
 
 void GGE::Game::init()
@@ -25,4 +25,3 @@ void GGE::Game::physicsUpdate()
 {
 	currentWorld.physicsUpdate();
 }
-
