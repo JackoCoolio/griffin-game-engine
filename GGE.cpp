@@ -6,6 +6,7 @@ int GGE::initialize(const char* title, const char* iconPath)
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 	{
 		std::cout << "SDL_Init threw error: " << SDL_GetError() << std::endl;
+		SDL_Quit();
 		return 1;
 	}
 
@@ -26,6 +27,12 @@ int GGE::initialize(const char* title, const char* iconPath)
 	else std::cout << "Unable to load icon!" << std::endl;
 
 	context = SDL_GL_CreateContext(window);
+	if (context == nullptr)
+	{
+		std::cout << "SDL_GLContext was not created!" << std::endl;
+		SDL_Quit();
+		return 1;
+	}
 
 	Game::getInstance();
 	Loop::getInstance();
