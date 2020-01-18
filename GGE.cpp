@@ -27,9 +27,9 @@ int GGE::initialize(const char* title, const char* iconPath)
 
 	context = SDL_GL_CreateContext(window);
 
-	eventManager = new EventManager();
-	game = new Game();
-	gameLoop = new Loop(game);
+	Game::getInstance();
+	Loop::getInstance();
+	EventManager::getInstance();
 
 	return 0;
 }
@@ -42,15 +42,15 @@ void GGE::startLoop()
 	{
 		while (SDL_PollEvent(&event))
 		{
-
-			eventManager->registerEvent(event);
-
+			EventManager::getInstance().registerEvent(event);
+			std::cout << event.type << std::endl;
+			
 			if (event.type == SDL_QUIT)
 				goto quit;
 		}
 
-		gameLoop->doTick();
-		
+		Loop::getInstance().doTick();
+
 	}
 
 quit:

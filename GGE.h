@@ -14,9 +14,6 @@ namespace GGE
 	{
 		SDL_Window *window;
 		SDL_GLContext context;
-		EventManager *eventManager;
-		Game *game;
-		Loop *gameLoop;
 	}
 
 	int initialize(const char* title, const char* iconPath);

@@ -7,9 +7,10 @@ GGE::EventManager::EventManager()
 
 }
 
-GGE::EventManager::~EventManager()
+GGE::EventManager &GGE::EventManager::getInstance()
 {
-
+	static EventManager eventManager;
+	return eventManager;
 }
 
 void GGE::EventManager::registerEvent(SDL_Event &event)

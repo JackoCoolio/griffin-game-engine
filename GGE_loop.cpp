@@ -3,19 +3,25 @@
 
 typedef std::chrono::high_resolution_clock Clock;
 
-GGE::Loop::Loop(GGE::Game *game) : game(game)
+GGE::Loop::Loop()
 {
 	last = Clock::now();
 }
 
+GGE::Loop &GGE::Loop::getInstance()
+{
+	static Loop loop;
+	return loop;
+}
+
 void GGE::Loop::init()
 {
-	game->init();
+	Game::getInstance().init();
 }
 
 void GGE::Loop::doTick()
 {
 	std::chrono::nanoseconds sec = std::chrono::duration_cast<std::chrono::nanoseconds>(Clock::now() - last);
 	last = Clock::now();
-	game->update((float)sec.count() / 1000000);
+	Game::getInstance().update((float)sec.count() / 1000000);
 }

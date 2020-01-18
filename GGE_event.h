@@ -7,9 +7,10 @@ namespace GGE
 
 	class EventManager
 	{
-	public:
+	private:
 		EventManager();
-		~EventManager();
+	public:
+		static EventManager &getInstance();
 		void registerEvent(SDL_Event &event);
 	};
 

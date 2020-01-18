@@ -11,8 +11,9 @@ namespace GGE
 	private:
 		std::chrono::time_point<std::chrono::high_resolution_clock> last;
 		Game *game;
+		Loop();
 	public:
-		Loop(Game *game);
+		static Loop &getInstance();
 		void init();
 		void doTick();
 	};
