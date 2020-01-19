@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SDL_events.h"
+#include <iostream>
 
 namespace GGE
 {
