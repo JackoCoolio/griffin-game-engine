@@ -10,7 +10,8 @@ int GGE::initialize(const char* title, const char* iconPath)
 		return 1;
 	}
 
-	window = SDL_CreateWindow(title, 100, 100, 640, 480, SDL_WINDOW_OPENGL);
+
+	window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL);
 	if (window == nullptr)
 	{
 		std::cout << "SDL_CreateWindow threw error: " << SDL_GetError() << std::endl;
