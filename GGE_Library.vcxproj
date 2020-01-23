@@ -164,6 +164,7 @@
     <ClInclude Include="GGE_renderer.h" />
     <ClInclude Include="GGE_script.h" />
     <ClInclude Include="GGE_shader.h" />
+    <ClInclude Include="GGE_texture.h" />
     <ClInclude Include="GGE_vector.h" />
     <ClInclude Include="GGE_world.h" />
     <ClInclude Include="stdafx.h" />
@@ -178,6 +179,7 @@
     <ClCompile Include="GGE_loop.cpp" />
     <ClCompile Include="GGE_node.cpp" />
     <ClCompile Include="GGE_renderer.cpp" />
+    <ClCompile Include="GGE_texture.cpp" />
     <ClCompile Include="GGE_vector.cpp" />
     <ClCompile Include="GGE_world.cpp" />
     <ClCompile Include="GGE_shader.cpp" />
