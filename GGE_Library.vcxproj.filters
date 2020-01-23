@@ -54,6 +54,9 @@
     <ClInclude Include="GGE_renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GGE_shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -87,6 +90,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GGE_renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GGE_shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
