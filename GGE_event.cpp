@@ -4,7 +4,7 @@
 
 GGE::EventManager::EventManager()
 {
-
+	std::cout << "event manager instantiated" << std::endl;
 }
 
 GGE::EventManager &GGE::EventManager::getInstance()
