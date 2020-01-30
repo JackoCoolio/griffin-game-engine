@@ -12,8 +12,6 @@ int GGE::initialize(const char* title, const char* iconPath)
 	}
 	std::cout << "SDL initialized." << std::endl;
 
-	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-
 	std::cout << "Creating window..." << std::endl;
 	window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL);
 	if (window == nullptr)

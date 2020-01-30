@@ -31,6 +31,7 @@ void GGE::Renderer::initialize(SDL_Window *window, bool enableVsync)
 	}
 
 	glClearColor(0.0f, 0.0f, 1.0f, 1.0f); // Set background color to gray.
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
 	glm::mat4 projection = glm::ortho(0.0f, 640.0f, 0.0f, 480.0f, -1.0f, 1.0f);
 
