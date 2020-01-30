@@ -165,6 +165,7 @@
     <ClInclude Include="GGE_renderer.h" />
     <ClInclude Include="GGE_script.h" />
     <ClInclude Include="GGE_shader.h" />
+    <ClInclude Include="GGE_sprite_renderer.h" />
     <ClInclude Include="GGE_texture.h" />
     <ClInclude Include="GGE_vector.h" />
     <ClInclude Include="GGE_world.h" />
@@ -184,6 +185,7 @@
     <ClCompile Include="GGE_vector.cpp" />
     <ClCompile Include="GGE_world.cpp" />
     <ClCompile Include="GGE_shader.cpp" />
+    <ClCompile Include="GGE_sprite_renderer.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
