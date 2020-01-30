@@ -10,7 +10,10 @@ public:
 	GLuint internalFormat, imageFormat, wrapS, wrapT, filterMin, filterMax;
 
 	Texture();
+	void bind();
+	void load(const GLchar *file, GLboolean alpha);
+
+private:
 	void generate(GLuint width, GLuint height, unsigned char* data);
-	void bind() const;
 };
 
