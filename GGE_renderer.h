@@ -12,6 +12,7 @@
 //Testing
 #include "GGE_shader.h"
 #include "GGE_texture.h"
+#include "GGE_sprite_renderer.h"
 
 namespace GGE
 {
@@ -23,6 +24,7 @@ namespace GGE
 		SDL_Window *window;
 		SDL_GLContext context;
 
+		SpriteRenderer *sprenderer;
 		Shader shader;
 		Texture texture;
 	public:
