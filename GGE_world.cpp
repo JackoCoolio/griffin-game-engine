@@ -37,4 +37,5 @@ void GGE::World::physicsUpdate()
 GGE::World GGE::World::loadFromJSON(const char* file)
 {
 	// TODO
+	return World();
 }
