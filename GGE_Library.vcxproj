@@ -156,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="GGE.h" />
     <ClInclude Include="GGE_camera.h" />
+    <ClInclude Include="GGE_debug.h" />
     <ClInclude Include="GGE_event.h" />
     <ClInclude Include="GGE_game.h" />
     <ClInclude Include="GGE_input.h" />

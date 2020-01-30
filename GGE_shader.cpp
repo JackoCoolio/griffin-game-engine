@@ -1,5 +1,6 @@
 #include "GGE_shader.h"
 #include <iostream>
+#include "GGE_debug.h"
 
 Shader &Shader::use()
 {

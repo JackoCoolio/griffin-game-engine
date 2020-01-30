@@ -60,6 +60,9 @@
     <ClInclude Include="GGE_texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GGE_debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
