@@ -13,7 +13,6 @@ public:
 	Shader() {}
 	Shader &use();
 	void compile(const GLchar *vertexSource, const GLchar *fragmentSource, const GLchar *geometrySource = nullptr);
-private:
 	void checkCompileErrors(GLuint object, std::string type);
 	void    setFloat(const GLchar *name, GLfloat value, GLboolean useShader = false);
 	void    setInteger(const GLchar *name, GLint value, GLboolean useShader = false);

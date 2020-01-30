@@ -1,16 +1,29 @@
+#include "stdafx.h"
 #include "GGE_shader.h"
+#include <string>
 #include <iostream>
+#include <sstream>
+#include <fstream>
+
 #include "GGE_debug.h"
 
 Shader &Shader::use()
 {
+	std::cout << "Shader used." << std::endl;
 	glUseProgram(this->id);
 	return *this; // Return the value of this shader obj
 }
 
 void Shader::compile(const GLchar *vertexSource, const GLchar *fragmentSource, const GLchar *geometrySource)
 {
-	GLuint sVertex, sFragment, gShader;
+	std::cout << "Shader compiled." << std::endl;
+	/*GLuint sVertex, sFragment, gShader;
+
+	std::ifstream f(vertexSource);
+	if (f.is_open())
+		std::cout << f.rdbuf();
+	else
+		std::cout << "Could not open shader!" << std::endl;
 
 	sVertex = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(sVertex, 1, &vertexSource, NULL);
@@ -41,7 +54,60 @@ void Shader::compile(const GLchar *vertexSource, const GLchar *fragmentSource, c
 	glDeleteShader(sVertex);
 	glDeleteShader(sFragment);
 	if (geometrySource != nullptr)
-		glDeleteShader(gShader);
+		glDeleteShader(gShader);*/
+
+	std::string vertexCode;
+	std::string fragmentCode;
+	std::ifstream vShaderFile;
+	std::ifstream fShaderFile;
+
+	vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+	fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+
+	try
+	{
+		vShaderFile.open(vertexSource);
+		fShaderFile.open(fragmentSource);
+		std::stringstream vShaderStream, fShaderStream;
+
+		vShaderStream << vShaderFile.rdbuf();
+		fShaderStream << fShaderFile.rdbuf();
+
+		vShaderFile.close();
+		fShaderFile.close();
+
+		vertexCode = vShaderStream.str();
+		fragmentCode = fShaderStream.str();
+	}
+	catch (std::ifstream::failure e)
+	{
+		std::cout << "ERROR::SHADER::FILE_NOT_SUCCESSFULLY_READ" << std::endl;
+	}
+
+	const char* vShaderCode = vertexCode.c_str();
+	const char* fShaderCode = fragmentCode.c_str();
+
+	unsigned int vertex, fragment;
+
+	vertex = glCreateShader(GL_VERTEX_SHADER);
+	glShaderSource(vertex, 1, &vShaderCode, NULL);
+	glCompileShader(vertex);
+	checkCompileErrors(vertex, "VERTEX");
+
+	fragment = glCreateShader(GL_FRAGMENT_SHADER);
+	glShaderSource(fragment, 1, &fShaderCode, NULL);
+	glCompileShader(fragment);
+	checkCompileErrors(fragment, "FRAGMENT");
+
+	id = glCreateProgram();
+	glAttachShader(id, vertex);
+	glAttachShader(id, fragment);
+	glLinkProgram(id);
+
+	checkCompileErrors(id, "PROGRAM");
+
+	glDeleteShader(vertex);
+	glDeleteShader(fragment);
 }
 
 void Shader::checkCompileErrors(GLuint object, std::string type)
