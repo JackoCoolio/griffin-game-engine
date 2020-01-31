@@ -13,6 +13,36 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\graphics">
+      <UniqueIdentifier>{be573d19-09c7-4708-8fd2-c9328d597a6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\structure">
+      <UniqueIdentifier>{6e79f629-7cad-426a-a2bc-601a7d26e809}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\component">
+      <UniqueIdentifier>{fff8bb8f-bba8-46db-9ebd-8c3def9104e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\logging">
+      <UniqueIdentifier>{ec786c04-9592-45bf-acc1-81c8b052d52e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\math">
+      <UniqueIdentifier>{941cd378-4405-4245-91e4-e773ad255a86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\graphics">
+      <UniqueIdentifier>{3b7c24b1-dc3d-485c-9755-a53c7bba4a99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\component">
+      <UniqueIdentifier>{2c94afbe-430e-40a4-8276-db97fda20bc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\logging">
+      <UniqueIdentifier>{255e72e2-193b-4bac-bd17-071252306b0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math">
+      <UniqueIdentifier>{68a0adce-e6d1-4c82-bb63-45d297679c44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\structure">
+      <UniqueIdentifier>{32d9e1d4-61d1-4136-a49d-b5f6454b2591}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -21,100 +51,103 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GGE.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GGE_event.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GGE_game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GGE_node.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GGE_world.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GGE_input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GGE_camera.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="GGE_vector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GGE_loop.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GGE_script.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="GGE_renderable.h">
+      <Filter>Header Files\graphics</Filter>
     </ClInclude>
     <ClInclude Include="GGE_renderer.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\graphics</Filter>
     </ClInclude>
     <ClInclude Include="GGE_shader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GGE_texture.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\graphics</Filter>
     </ClInclude>
     <ClInclude Include="GGE_sprite_renderer.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="GGE_texture.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="GGE_game.h">
+      <Filter>Header Files\structure</Filter>
+    </ClInclude>
+    <ClInclude Include="GGE_loop.h">
+      <Filter>Header Files\structure</Filter>
+    </ClInclude>
+    <ClInclude Include="GGE_node.h">
+      <Filter>Header Files\structure</Filter>
+    </ClInclude>
+    <ClInclude Include="GGE_world.h">
+      <Filter>Header Files\structure</Filter>
+    </ClInclude>
+    <ClInclude Include="GGE_event.h">
+      <Filter>Header Files\structure</Filter>
+    </ClInclude>
+    <ClInclude Include="GGE_script.h">
+      <Filter>Header Files\component</Filter>
     </ClInclude>
     <ClInclude Include="GGE_debug.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="GGE_vector.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="GGE.h">
+      <Filter>Header Files\structure</Filter>
+    </ClInclude>
+    <ClInclude Include="GGE_input.h">
+      <Filter>Header Files\structure</Filter>
     </ClInclude>
     <ClInclude Include="GGE_window.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\structure</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GGE_event.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GGE_game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GGE_node.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GGE.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GGE_world.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GGE_input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GGE_camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GGE_vector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GGE_loop.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\graphics</Filter>
     </ClCompile>
     <ClCompile Include="GGE_renderer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\graphics</Filter>
     </ClCompile>
     <ClCompile Include="GGE_shader.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\graphics</Filter>
     </ClCompile>
     <ClCompile Include="GGE_texture.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\graphics</Filter>
     </ClCompile>
     <ClCompile Include="GGE_sprite_renderer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="GGE.cpp">
+      <Filter>Source Files\structure</Filter>
+    </ClCompile>
+    <ClCompile Include="GGE_event.cpp">
+      <Filter>Source Files\structure</Filter>
+    </ClCompile>
+    <ClCompile Include="GGE_game.cpp">
+      <Filter>Source Files\structure</Filter>
+    </ClCompile>
+    <ClCompile Include="GGE_input.cpp">
+      <Filter>Source Files\structure</Filter>
+    </ClCompile>
+    <ClCompile Include="GGE_loop.cpp">
+      <Filter>Source Files\structure</Filter>
+    </ClCompile>
+    <ClCompile Include="GGE_node.cpp">
+      <Filter>Source Files\structure</Filter>
     </ClCompile>
     <ClCompile Include="GGE_window.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\structure</Filter>
+    </ClCompile>
+    <ClCompile Include="GGE_world.cpp">
+      <Filter>Source Files\structure</Filter>
+    </ClCompile>
+    <ClCompile Include="GGE_vector.cpp">
+      <Filter>Source Files\math</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
