@@ -9,10 +9,10 @@ namespace GGE
 	class Camera : public Node
 	{
 	private:
-		Vector size;
+		Vector2 size;
 	public:
-		Camera(Vector offset, Vector size);
-		Vector getSize();
+		Camera(Vector2 offset, Vector2 size);
+		Vector2 getSize();
 	};
 
 }

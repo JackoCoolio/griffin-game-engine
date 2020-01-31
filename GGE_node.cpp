@@ -2,11 +2,11 @@
 #include "GGE_node.h"
 
 
-GGE::Node::Node(Vector offset) : offset(offset) {}
+GGE::Node::Node(Vector2 offset) : offset(offset) {}
 
 GGE::Node::Node()
 {
-	offset = Vector{ 0, 0 };
+	offset = Vector2{ 0, 0 };
 }
 
 void GGE::Node::init()
@@ -45,7 +45,7 @@ void GGE::Node::physicsUpdate()
 	}
 }
 
-GGE::Vector GGE::Node::getOffset()
+GGE::Vector2 GGE::Node::getOffset()
 {
 	return offset;
 }
