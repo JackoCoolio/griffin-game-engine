@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "GGE_renderer.h"
 
+#include <algorithm>
+
 
 
 GGE::Renderer::Renderer()
@@ -12,6 +14,18 @@ GGE::Renderer &GGE::Renderer::getInstance()
 {
 	static Renderer renderer;
 	return renderer;
+}
+
+void GGE::Renderer::addRenderable(Renderable *renderable)
+{
+	renderables.push_back(renderable);
+}
+
+void GGE::Renderer::removeRenderable(Renderable *renderable, bool del = false)
+{
+	std::remove(renderables.begin(), renderables.end(), renderable);
+	if (del)
+		delete renderable;
 }
 
 void GGE::Renderer::initialize(SDL_Window *window, bool enableVsync)
@@ -40,8 +54,10 @@ void GGE::Renderer::initialize(SDL_Window *window, bool enableVsync)
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 6);
 
+	glm::mat4 proj = glm::ortho(0.0f, 640.0f, 0.0f, 480.0f, -1.0f, 1.0f);
+
 	glMatrixMode(GL_PROJECTION);
-	glOrtho(0, 640, 0, 480, -1, 1);
+	glOrtho(0.0f, 640.0f, 0.0f, 480.0f, -1.0f, 1.0f);
 	glMatrixMode(GL_MODELVIEW);
 
 	glEnable(GL_TEXTURE_2D);
@@ -55,8 +71,10 @@ void GGE::Renderer::initialize(SDL_Window *window, bool enableVsync)
 
 	shader.compile("assets/test/sprite.vert", "assets/test/sprite.frag");
 
-	sprenderer = new SpriteRenderer(shader);
+	sprenderer = new SpriteRenderer(shader, texture);
 	sprenderer->initialize();
+
+	renderables.push_back(sprenderer);
 }
 
 void GGE::Renderer::renderClear()
@@ -72,7 +90,12 @@ void GGE::Renderer::render()
 	//glColor3f(1.0f, 0.0f, 0.0f);
 	//glViewport(0, 0, 640, 480);
 	//std::cout << "Texture: " << texture.id << " Shader: " << shader.id << std::endl;
-	sprenderer->draw(texture);
+	//sprenderer->draw(texture);
+
+	for (auto &r : renderables)
+	{
+		r->render();
+	}
 
 	// Iterate through all Renderables
 	SDL_GL_SwapWindow(window);

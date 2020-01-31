@@ -167,6 +167,7 @@
     <ClInclude Include="GGE_input.h" />
     <ClInclude Include="GGE_loop.h" />
     <ClInclude Include="GGE_node.h" />
+    <ClInclude Include="GGE_renderable.h" />
     <ClInclude Include="GGE_renderer.h" />
     <ClInclude Include="GGE_script.h" />
     <ClInclude Include="GGE_shader.h" />

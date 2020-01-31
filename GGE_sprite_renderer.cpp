@@ -3,19 +3,23 @@
 
 #include <iostream>
 #include "GGE_debug.h"
+#include "GGE_renderer.h"
 
-SpriteRenderer::SpriteRenderer(Shader &shader)
+GGE::SpriteRenderer::SpriteRenderer(Shader &shader, Texture &texture) : Renderable()
 {
 	std::cout << "Sprite Renderer constructed." << std::endl;
 	this->shader = shader;
+	this->texture = texture;
+	Renderer::getInstance().addRenderable(this);
 }
 
 
-SpriteRenderer::~SpriteRenderer()
+GGE::SpriteRenderer::~SpriteRenderer()
 {
+	Renderer::getInstance().removeRenderable(this, 0);
 }
 
-void SpriteRenderer::initialize()
+void GGE::SpriteRenderer::initialize()
 {
 	std::cout << "Sprite Renderer initialized." << std::endl;
 
@@ -25,10 +29,10 @@ void SpriteRenderer::initialize()
 
 	float vertices[] =
 	{
-		 0.5f,  0.5f,  0.0f, // top right
-		 0.5f, -0.5f,  0.0f, // bottom right
-		-0.5f, -0.5f,  0.0f, // bottom left
-		-0.5f,  0.5f,  0.0f // top left
+		 1.0f, 1.0f,  0.0f, // top right
+		 1.0f, 0.0f,  0.0f, // bottom right
+		 0.0f, 0.0f,  0.0f, // bottom left
+		 0.0f, 1.0f,  0.0f // top left
 	};
 	float texCoords[] =
 	{
@@ -95,7 +99,7 @@ void SpriteRenderer::initialize()
 	glBindVertexArray(0);*/
 }
 
-void SpriteRenderer::draw(Texture &texture)
+void GGE::SpriteRenderer::render()
 {
 
 	/*glBegin(GL_TRIANGLES);
@@ -115,6 +119,14 @@ void SpriteRenderer::draw(Texture &texture)
 	glUseProgram(shader.id);
 
 	glUniform1i(glGetUniformLocation(shader.id, "tex"), 0);
+
+	glm::mat4 proj = glm::ortho(0.0f, 640.0f, 0.0f, 480.0f, -1.0f, 1.0f); // Transform to pixel-space
+	glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(-100, 0, 0)); // Camera
+	glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(200, 200, 0));
+
+	glm::mat4 mvp = proj * view * model;
+
+	glUniformMatrix4fv(glGetUniformLocation(shader.id, "mvp"), 1, GL_FALSE, &mvp[0][0]);
 
 	/*glBindVertexArray(vao);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, (void*)0);
