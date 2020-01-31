@@ -7,13 +7,14 @@
 #include "GGE_game.h"
 #include "GGE_loop.h"
 #include "GGE_renderer.h"
+#include "GGE_window.h"
 
 namespace GGE
 {
 
 	namespace
 	{
-		SDL_Window *window;
+		Window window;
 	}
 
 	int initialize(const char* title, const char* iconPath);

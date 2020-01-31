@@ -13,8 +13,8 @@ int GGE::initialize(const char* title, const char* iconPath)
 	std::cout << "SDL initialized." << std::endl;
 
 	std::cout << "Creating window..." << std::endl;
-	window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL);
-	if (window == nullptr)
+	
+	if (!window.initialize(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL))
 	{
 		std::cout << "SDL_CreateWindow threw error: " << SDL_GetError() << std::endl;
 		SDL_Quit();
@@ -23,12 +23,9 @@ int GGE::initialize(const char* title, const char* iconPath)
 	std::cout << "Window created." << std::endl;
 
 	std::cout << "Setting window icon..." << std::endl;
-	SDL_Surface *bmp = SDL_LoadBMP(iconPath);
-	if (bmp != nullptr)
+	if (window.setWindowIcon(iconPath, true))
 	{
-		SDL_SetWindowIcon(window, bmp);
-		SDL_FreeSurface(bmp);
-		std::cout << "Window icon set.";
+		std::cout << "Set window icon!" << std::endl;
 	}
 	else std::cout << "Unable to load icon!" << std::endl;
 
@@ -36,7 +33,7 @@ int GGE::initialize(const char* title, const char* iconPath)
 	Game::getInstance();
 	Loop::getInstance();
 	EventManager::getInstance();
-	Renderer::getInstance().initialize(window, true);
+	Renderer::getInstance().initialize(window.getSDLWindow(), true);
 	std::cout << "Game structure initialized." << std::endl;
 
 	return 0;
@@ -71,6 +68,5 @@ quit:
 
 void GGE::shutdownEngine()
 {
-	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
