@@ -43,14 +43,14 @@
     <Filter Include="Source Files\structure">
       <UniqueIdentifier>{32d9e1d4-61d1-4136-a49d-b5f6454b2591}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\std">
+      <UniqueIdentifier>{3164eace-a22c-4931-8cfb-0f722d85a491}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\std">
+      <UniqueIdentifier>{394f74cc-b626-4bef-a1f4-9fe7f8b82189}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GGE_camera.h">
       <Filter>Header Files\graphics</Filter>
     </ClInclude>
@@ -102,11 +102,14 @@
     <ClInclude Include="GGE_behavior.h">
       <Filter>Header Files\component</Filter>
     </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files\std</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files\std</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GGE_camera.cpp">
       <Filter>Source Files\graphics</Filter>
     </ClCompile>
@@ -148,6 +151,9 @@
     </ClCompile>
     <ClCompile Include="GGE_vector.cpp">
       <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files\std</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
