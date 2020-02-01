@@ -93,8 +93,18 @@ void GGE::SpriteRenderer::render()
 	glUniform1i(glGetUniformLocation(shader.id, "tex"), 0);
 
 	glm::mat4 proj = glm::ortho(0.0f, 640.0f, 0.0f, 480.0f, -1.0f, 1.0f); // Transform to pixel-space
-	glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(-100, 0, 0)); // Camera
-	glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(200, 200, 0));
+	glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0)); // Camera
+
+	glm::mat4 translateMat = glm::translate(glm::mat4(1.0f), glm::vec3(transform.x, transform.y, 0));
+	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), glm::vec3(scale.x, scale.y, 1.0f));
+	glm::mat4 rotMat = glm::toMat4(glm::quat(
+		cos(rotate / 2),
+		0,
+		0,
+		sin(rotate / 2)
+	));
+
+	glm::mat4 model = translateMat * rotMat * scaleMat;
 
 	glm::mat4 mvp = proj * view * model;
 
