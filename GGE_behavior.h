@@ -3,7 +3,7 @@
 namespace GGE
 {
 
-	class Script
+	class Behavior
 	{
 	public:
 		virtual void init() {}

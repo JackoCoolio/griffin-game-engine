@@ -84,9 +84,6 @@
     <ClInclude Include="GGE_event.h">
       <Filter>Header Files\structure</Filter>
     </ClInclude>
-    <ClInclude Include="GGE_script.h">
-      <Filter>Header Files\component</Filter>
-    </ClInclude>
     <ClInclude Include="GGE_debug.h">
       <Filter>Header Files\logging</Filter>
     </ClInclude>
@@ -101,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="GGE_window.h">
       <Filter>Header Files\structure</Filter>
+    </ClInclude>
+    <ClInclude Include="GGE_behavior.h">
+      <Filter>Header Files\component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -10,7 +10,7 @@ namespace GGE
 	{
 	protected:
 		Vector2 offset;
-		std::vector<Script> scripts;
+		std::vector<Behavior> behaviors;
 		std::vector<Node> nodes;
 	public:
 		Node(Vector2 offset);
