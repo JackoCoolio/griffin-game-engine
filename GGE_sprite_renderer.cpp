@@ -136,3 +136,33 @@ void GGE::SpriteRenderer::render()
 
 	GL_ASSERT(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, (void*)0));
 }
+
+void GGE::SpriteRenderer::setScale(float x, float y)
+{
+	scale = { x, y };
+}
+
+GGE::Vector2 &GGE::SpriteRenderer::getScale()
+{
+	return scale;
+}
+
+void GGE::SpriteRenderer::setPosition(float x, float y)
+{
+	transform = { x, y };
+}
+
+GGE::Vector2 &GGE::SpriteRenderer::getPosition()
+{
+	return transform;
+}
+
+void GGE::SpriteRenderer::setRotationAngle(float angle)
+{
+	rotate = angle;
+}
+
+float GGE::SpriteRenderer::getRotationAngle()
+{
+	return rotate;
+}
