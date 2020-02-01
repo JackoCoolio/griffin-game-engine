@@ -5,14 +5,22 @@
 #include "GGE_debug.h"
 #include "GGE_renderer.h"
 
+#include <math.h>
+#include "glm/gtc/quaternion.hpp"
+#include "glm/gtx/quaternion.hpp"
+
 GGE::SpriteRenderer::SpriteRenderer(Shader &shader, Texture &texture) : Renderable()
 {
 	std::cout << "Sprite Renderer constructed." << std::endl;
 	this->shader = shader;
 	this->texture = texture;
 	Renderer::getInstance().addRenderable(this);
-}
 
+	rotate = 3.141592f / 2;
+
+	scale = { 50, 50 };
+	transform = { 300, 300 };
+}
 
 GGE::SpriteRenderer::~SpriteRenderer()
 {
@@ -21,18 +29,18 @@ GGE::SpriteRenderer::~SpriteRenderer()
 
 void GGE::SpriteRenderer::initialize()
 {
-	std::cout << "Sprite Renderer initialized." << std::endl;
 
+	std::cout << "Sprite Renderer initialized." << std::endl;
 	
 	glCreateVertexArrays(1, &vao);
 	glBindVertexArray(vao);
 
 	float vertices[] =
 	{
-		 1.0f, 1.0f,  0.0f, // top right
-		 1.0f, 0.0f,  0.0f, // bottom right
-		 0.0f, 0.0f,  0.0f, // bottom left
-		 0.0f, 1.0f,  0.0f // top left
+		  0.5f,  0.5f,  0.0f, // top right
+		  0.5f, -0.5f,  0.0f, // bottom right
+		 -0.5f, -0.5f,  0.0f, // bottom left
+		 -0.5f,  0.5f,  0.0f // top left
 	};
 	float texCoords[] =
 	{
@@ -62,9 +70,6 @@ void GGE::SpriteRenderer::initialize()
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*)sizeof(vertices));
 	glEnableVertexAttribArray(1);
 
-	//glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5, OFFSET(3));
-	//glEnableVertexAttribArray(1);
-
 	GLuint ebo;
 	glGenBuffers(1, &ebo);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
@@ -73,43 +78,10 @@ void GGE::SpriteRenderer::initialize()
 
 	glBindVertexArray(0); // Not necessary, but good practice.
 
-	//////////////////////////////
-	/*glGenVertexArrays(1, &vao);
-
-	glBindVertexArray(vao);
-	
-	float vertices[] =
-	{
-		0.0f, 0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		-0.5f, -0.5f, 0.0f
-	};
-
-	GLuint vbo;
-	glGenBuffers(1, &vbo);
-
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, OFFSET(0));
-
-	glEnableVertexAttribArray(0);
-
-	glBindVertexArray(0);*/
 }
 
 void GGE::SpriteRenderer::render()
 {
-
-	/*glBegin(GL_TRIANGLES);
-	glVertex2f(0.5f, 0.5f);
-	glVertex2f(0.5f, -0.5f);
-	glVertex2f(-0.5f, 0.5f);
-	glVertex2f(0.5f, -0.5f);
-	glVertex2f(-0.5f, -0.5f);
-	glVertex2f(-0.5f, 0.5f);
-	glEnd();*/
 
 	glActiveTexture(GL_TEXTURE0);
 	texture.bind();
@@ -128,10 +100,6 @@ void GGE::SpriteRenderer::render()
 
 	glUniformMatrix4fv(glGetUniformLocation(shader.id, "mvp"), 1, GL_FALSE, &mvp[0][0]);
 
-	/*glBindVertexArray(vao);
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, (void*)0);
-	glBindVertexArray(0);*/
-
 	glBindVertexArray(vao);
 
 	GL_ASSERT(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, (void*)0));
@@ -142,7 +110,7 @@ void GGE::SpriteRenderer::setScale(float x, float y)
 	scale = { x, y };
 }
 
-GGE::Vector2 &GGE::SpriteRenderer::getScale()
+const GGE::Vector2 &GGE::SpriteRenderer::getScale()
 {
 	return scale;
 }
@@ -152,7 +120,7 @@ void GGE::SpriteRenderer::setPosition(float x, float y)
 	transform = { x, y };
 }
 
-GGE::Vector2 &GGE::SpriteRenderer::getPosition()
+const GGE::Vector2 &GGE::SpriteRenderer::getPosition()
 {
 	return transform;
 }

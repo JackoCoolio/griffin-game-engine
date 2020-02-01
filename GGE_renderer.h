@@ -37,7 +37,7 @@ namespace GGE
 		Renderer(const Renderer&) = delete;
 		static Renderer & getInstance();
 		void addRenderable(Renderable *renderable);
-		void removeRenderable(Renderable *renderable);
+		void removeRenderable(Renderable *renderable, bool del = false);
 		void initialize(SDL_Window *window, bool enableVsync);
 		void renderClear();
 		void render();

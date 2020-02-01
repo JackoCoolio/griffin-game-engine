@@ -21,7 +21,7 @@ void GGE::Renderer::addRenderable(Renderable *renderable)
 	renderables.push_back(renderable);
 }
 
-void GGE::Renderer::removeRenderable(Renderable *renderable, bool del = false)
+void GGE::Renderer::removeRenderable(Renderable *renderable, bool del)
 {
 	std::remove(renderables.begin(), renderables.end(), renderable);
 	if (del)
