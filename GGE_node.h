@@ -2,7 +2,7 @@
 
 #include <vector>
 #include "GGE_vector.h"
-#include "GGE_script.h"
+#include "GGE_behavior.h"
 
 namespace GGE
 {
