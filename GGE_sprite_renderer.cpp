@@ -27,7 +27,7 @@ GGE::SpriteRenderer::~SpriteRenderer()
 	Renderer::getInstance().removeRenderable(this, 0);
 }
 
-void GGE::SpriteRenderer::initialize()
+void GGE::SpriteRenderer::init()
 {
 
 	std::cout << "Sprite Renderer initialized." << std::endl;
