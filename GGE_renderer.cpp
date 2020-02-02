@@ -3,8 +3,6 @@
 
 #include <algorithm>
 
-
-
 GGE::Renderer::Renderer()
 {
 	std::cout << "Renderer constructed." << std::endl;
@@ -66,32 +64,16 @@ void GGE::Renderer::initialize(SDL_Window *window, bool enableVsync)
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // This prevents the texture from looking like garbage.
 
 	glClearColor(0.5f, 0.5f, 0.5f, 1.0f); // Set background color to gray.
-
-	texture.load("assets/test/bbbt.png", true);
-
-	shader.compile("assets/test/sprite.vert", "assets/test/sprite.frag");
-
-	sprenderer = new SpriteRenderer(shader, texture);
-	sprenderer->initialize();
-
-	renderables.push_back(sprenderer);
 }
 
 void GGE::Renderer::renderClear()
 {
 	glClearDepth(1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	
 }
 
 void GGE::Renderer::render()
 {
-	//glColor3f(1.0f, 0.0f, 0.0f);
-	//glViewport(0, 0, 640, 480);
-	//std::cout << "Texture: " << texture.id << " Shader: " << shader.id << std::endl;
-	//sprenderer->draw(texture);
-
 	for (auto &r : renderables)
 	{
 		r->render();
