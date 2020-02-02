@@ -104,11 +104,17 @@ void GGE::SpriteRenderer::render()
 		sin(rotate / 2)
 	));
 
-	glm::mat4 model = translateMat * rotMat * scaleMat;
+	//glm::mat4 model = translateMat * rotMat * scaleMat;
 
-	glm::mat4 mvp = proj * view * model;
+	//glm::mat4 mvp = proj * view * model;
 
-	glUniformMatrix4fv(glGetUniformLocation(shader.id, "mvp"), 1, GL_FALSE, &mvp[0][0]);
+	shader.setMatrix4("translate", translateMat);
+	shader.setMatrix4("scale", scaleMat);
+	shader.setMatrix4("rotation", rotMat);
+	shader.setMatrix4("view", view);
+	shader.setMatrix4("projection", proj);
+
+	//glUniformMatrix4fv(glGetUniformLocation(shader.id, "mvp"), 1, GL_FALSE, &mvp[0][0]);
 
 	glBindVertexArray(vao);
 
