@@ -1,6 +1,11 @@
 #include "stdafx.h"
 #include "GGE.h"
 
+#include "GGE_game.h"
+#include "GGE_loop.h"
+#include "GGE_event.h"
+#include "GGE_renderer.h"
+
 int GGE::initialize(const char* title, const char* iconPath)
 {
 	std::cout << "Initializing SDL..." << std::endl;
