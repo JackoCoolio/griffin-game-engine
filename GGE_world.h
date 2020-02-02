@@ -13,6 +13,7 @@ namespace GGE
 	public:
 		World();
 		~World();
+		void addNode(Node node);
 		void init();
 		void update(float delta);
 		void physicsUpdate();

@@ -10,6 +10,11 @@ GGE::World::~World()
 {
 }
 
+void GGE::World::addNode(Node node)
+{
+	nodes.push_back(node);
+}
+
 void GGE::World::init()
 {
 	for (auto& node : nodes)
