@@ -43,7 +43,7 @@ void GGE::Texture::load(const GLchar *file, GLboolean alpha)
 	std::cout << "Loading image: "
 		<< file
 		<< std::endl;
-	if (alpha)
+	if (this->alpha = alpha)
 	{
 		internalFormat = GL_RGBA;
 		imageFormat = GL_RGBA;
@@ -70,4 +70,19 @@ void GGE::Texture::load(const GLchar *file, GLboolean alpha)
 	generate(width, height, image);
 
 	SOIL_free_image_data(image);
+}
+
+GLuint GGE::Texture::getWidth() const
+{
+	return width;
+}
+
+GLuint GGE::Texture::getHeight() const
+{
+	return height;
+}
+
+bool GGE::Texture::hasAlphaChannel() const
+{
+	return alpha;
 }
