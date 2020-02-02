@@ -14,6 +14,7 @@ namespace GGE
 		Game();
 	public:
 		static Game &getInstance();
+		World &getWorld() { return currentWorld; }
 		void init();
 		void update(float delta);
 		void physicsUpdate();
