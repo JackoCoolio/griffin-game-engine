@@ -18,7 +18,7 @@ GGE::SpriteRenderer::SpriteRenderer(Shader &shader, Texture &texture) : Renderab
 
 	rotate = 3.141592f / 2;
 
-	scale = { 50, 50 };
+	scale = { 1, 1 };
 	transform = { 300, 300 };
 }
 
@@ -96,7 +96,7 @@ void GGE::SpriteRenderer::render()
 	glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0)); // Camera
 
 	glm::mat4 translateMat = glm::translate(glm::mat4(1.0f), glm::vec3(transform.x, transform.y, 0));
-	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), glm::vec3(scale.x, scale.y, 1.0f));
+	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), glm::vec3(scale.x * texture.getWidth(), scale.y * texture.getWidth(), 1.0f));
 	glm::mat4 rotMat = glm::toMat4(glm::quat(
 		cos(rotate / 2),
 		0,
