@@ -17,7 +17,6 @@ namespace GGE {
 		~SpriteRenderer();
 		void render();
 		void init();
-		void update(float delta);
 		void setScale(float x, float y);
 		const Vector2 &getScale();
 		void setPosition(float x, float y);
