@@ -2,18 +2,19 @@
 
 #include <GL\glew.h>
 
-class Texture
-{
-public:
-	GLuint id;
-	GLuint width, height;
-	GLuint internalFormat, imageFormat, wrapS, wrapT, filterMin, filterMax;
+namespace GGE {
+	class Texture
+	{
+	public:
+		GLuint id;
+		GLuint width, height;
+		GLuint internalFormat, imageFormat, wrapS, wrapT, filterMin, filterMax;
 
-	Texture();
-	void bind();
-	void load(const GLchar *file, GLboolean alpha);
+		Texture();
+		void bind();
+		void load(const GLchar *file, GLboolean alpha);
 
-private:
-	void generate(GLuint width, GLuint height, unsigned char* data);
-};
-
+	private:
+		void generate(GLuint width, GLuint height, unsigned char* data);
+	};
+}

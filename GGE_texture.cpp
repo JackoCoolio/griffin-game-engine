@@ -8,12 +8,12 @@
 #include <SOIL\SOIL.h>
 #include "SDL.h"
 
-Texture::Texture() : width(0), height(0), internalFormat(GL_RGB), imageFormat(GL_RGB), wrapS(GL_CLAMP_TO_BORDER), wrapT(GL_CLAMP_TO_BORDER), filterMin(GL_NEAREST), filterMax(GL_NEAREST)
+GGE::Texture::Texture() : width(0), height(0), internalFormat(GL_RGB), imageFormat(GL_RGB), wrapS(GL_CLAMP_TO_BORDER), wrapT(GL_CLAMP_TO_BORDER), filterMin(GL_NEAREST), filterMax(GL_NEAREST)
 {
 	std::cout << "Texture constructed." << std::endl;
 }
 
-void Texture::generate(GLuint width, GLuint height, unsigned char* data)
+void GGE::Texture::generate(GLuint width, GLuint height, unsigned char* data)
 {
 	std::cout << "Texture generated." << std::endl;
 	this->width = width;
@@ -32,12 +32,12 @@ void Texture::generate(GLuint width, GLuint height, unsigned char* data)
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void Texture::bind()
+void GGE::Texture::bind()
 {
 	glBindTexture(GL_TEXTURE_2D, this->id);
 }
 
-void Texture::load(const GLchar *file, GLboolean alpha)
+void GGE::Texture::load(const GLchar *file, GLboolean alpha)
 {
 	std::cout << "Texture loaded." << std::endl;
 	std::cout << "Loading image: "
