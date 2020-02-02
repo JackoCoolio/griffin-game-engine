@@ -43,6 +43,8 @@ void GGE::startLoop()
 {
 	SDL_Event event;
 
+	Loop::getInstance().init();
+
 	while (1)
 	{
 		while (SDL_PollEvent(&event))
