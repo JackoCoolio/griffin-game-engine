@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "GGE_node.h"
 
-
 GGE::Node::Node(Vector2 offset) : offset(offset) {}
 
 GGE::Node::Node()
@@ -9,11 +8,21 @@ GGE::Node::Node()
 	offset = Vector2{ 0, 0 };
 }
 
+GGE::Behavior *GGE::Node::getBehavior(std::string type)
+{
+	return behaviors[type];
+}
+
+void GGE::Node::addBehavior(Behavior *beh)
+{
+	behaviors[beh->getType()] = beh;
+}
+
 void GGE::Node::init()
 {
-	for (auto& beh : behaviors)
+	for (auto &pair : behaviors)
 	{
-		beh.init();
+		pair.second->init();
 	}
 	for (auto& node : nodes)
 	{
@@ -23,9 +32,9 @@ void GGE::Node::init()
 
 void GGE::Node::update(float delta)
 {
-	for (auto& beh : behaviors)
+	for (auto &pair : behaviors)
 	{
-		beh.update(delta);
+		pair.second->update(delta);
 	}
 	for (auto& node : nodes)
 	{
@@ -35,9 +44,9 @@ void GGE::Node::update(float delta)
 
 void GGE::Node::physicsUpdate()
 {
-	for (auto& beh : behaviors)
+	for (auto &pair : behaviors)
 	{
-		beh.physicsUpdate();
+		pair.second->physicsUpdate();
 	}
 	for (auto& node : nodes)
 	{

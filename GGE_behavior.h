@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 namespace GGE
 {
 
@@ -9,6 +11,7 @@ namespace GGE
 		virtual void init() {}
 		virtual void update(float delta) {}
 		virtual void physicsUpdate() {}
+		virtual std::string getType() = 0;
 	};
 
 }

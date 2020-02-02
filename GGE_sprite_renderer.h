@@ -22,6 +22,7 @@ namespace GGE {
 		const Vector2 &getPosition();
 		void setRotationAngle(float angle);
 		float getRotationAngle();
+		std::string getType() { return "SpriteRenderer"; }
 	private:
 		GLuint vao;
 		Shader shader;
