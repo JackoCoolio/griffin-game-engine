@@ -14,14 +14,13 @@ namespace GGE
 		std::map<std::string, Behavior*> behaviors;
 		std::vector<Node> nodes;
 	public:
-		Node(Vector2 offset);
-		Node();
+		Node(Vector2 offset = { 0, 0 });
 		Behavior *getBehavior(std::string type);
 		void addBehavior(Behavior *beh);
 		void init();
 		void update(float delta);
 		void physicsUpdate();
-		Vector2 getOffset();
+		Vector2 getOffset() const;
 	};
 
 }

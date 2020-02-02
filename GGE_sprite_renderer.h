@@ -15,7 +15,7 @@ namespace GGE {
 	public:
 		SpriteRenderer(Shader &shader, Texture &texture);
 		~SpriteRenderer();
-		void render();
+		void render(Camera &camera);
 		void init();
 		void setScale(float x, float y);
 		const Vector2 &getScale();

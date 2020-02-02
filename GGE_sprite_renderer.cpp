@@ -16,10 +16,10 @@ GGE::SpriteRenderer::SpriteRenderer(Shader &shader, Texture &texture) : Renderab
 	this->texture = texture;
 	Renderer::getInstance().addRenderable(this);
 
-	rotate = 3.141592f / 2;
+	rotate = 0;
 
 	scale = { 1, 1 };
-	transform = { 300, 300 };
+	transform = { 0, 0 };
 }
 
 GGE::SpriteRenderer::~SpriteRenderer()
@@ -80,7 +80,7 @@ void GGE::SpriteRenderer::init()
 
 }
 
-void GGE::SpriteRenderer::render()
+void GGE::SpriteRenderer::render(Camera &camera)
 {
 
 	glActiveTexture(GL_TEXTURE0);
@@ -93,7 +93,12 @@ void GGE::SpriteRenderer::render()
 	glUniform1i(glGetUniformLocation(shader.id, "tex"), 0);
 
 	glm::mat4 proj = glm::ortho(0.0f, 640.0f, 0.0f, 480.0f, -1.0f, 1.0f); // Transform to pixel-space
-	glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0)); // Camera
+	glm::mat4 camTranslate = glm::translate(glm::mat4(1.0f), glm::vec3(320 - camera.getOffset().x, 240 - camera.getOffset().y, 0)); // Camera
+	glm::mat4 camScale = glm::scale(glm::mat4(1.0f), glm::vec3(camera.getSize().x, camera.getSize().y, 1.0f));
+	glm::mat4 camRotation = glm::toMat4(glm::quat(cos(camera.getRotation() / 2), 0, 0, sin(camera.getRotation() / 2)));
+
+	glm::mat4 view = camTranslate * camRotation * camScale;
+	//view *= glm::toMat4(glm::quat(cos(angle / 2), 0, 0, sin(angle / 2)));
 
 	glm::mat4 translateMat = glm::translate(glm::mat4(1.0f), glm::vec3(transform.x, transform.y, 0));
 	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), glm::vec3(scale.x * texture.getWidth(), scale.y * texture.getWidth(), 1.0f));

@@ -3,11 +3,6 @@
 
 GGE::Node::Node(Vector2 offset) : offset(offset) {}
 
-GGE::Node::Node()
-{
-	offset = Vector2{ 0, 0 };
-}
-
 GGE::Behavior *GGE::Node::getBehavior(std::string type)
 {
 	return behaviors[type];
@@ -54,7 +49,7 @@ void GGE::Node::physicsUpdate()
 	}
 }
 
-GGE::Vector2 GGE::Node::getOffset()
+GGE::Vector2 GGE::Node::getOffset() const
 {
 	return offset;
 }

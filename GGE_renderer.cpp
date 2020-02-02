@@ -14,6 +14,11 @@ GGE::Renderer &GGE::Renderer::getInstance()
 	return renderer;
 }
 
+void GGE::Renderer::setCamera(Camera *camera)
+{
+	this->camera = camera;
+}
+
 void GGE::Renderer::addRenderable(Renderable *renderable)
 {
 	renderables.push_back(renderable);
@@ -52,8 +57,6 @@ void GGE::Renderer::initialize(SDL_Window *window, bool enableVsync)
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 6);
 
-	glm::mat4 proj = glm::ortho(0.0f, 640.0f, 0.0f, 480.0f, -1.0f, 1.0f);
-
 	glMatrixMode(GL_PROJECTION);
 	glOrtho(0.0f, 640.0f, 0.0f, 480.0f, -1.0f, 1.0f);
 	glMatrixMode(GL_MODELVIEW);
@@ -76,7 +79,7 @@ void GGE::Renderer::render()
 {
 	for (auto &r : renderables)
 	{
-		r->render();
+		r->render(*camera);
 	}
 
 	// Iterate through all Renderables

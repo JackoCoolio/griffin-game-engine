@@ -24,12 +24,14 @@ namespace GGE
 
 		std::vector<Renderable*> renderables;
 
-		glm::mat4 projection;
+		Camera *camera;
 	public:
 		Renderer & operator=(const Renderer&) = delete;
 		Renderer(const Renderer&) = delete;
 
 		static Renderer & getInstance();
+
+		void setCamera(Camera *camera);
 
 		void addRenderable(Renderable *renderable);
 		void removeRenderable(Renderable *renderable, bool del = false);
