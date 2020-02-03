@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "GGE.h"
 
+#include "GGE_input.h"
 #include "GGE_game.h"
 #include "GGE_loop.h"
 #include "GGE_event.h"
@@ -52,6 +53,9 @@ void GGE::startLoop()
 
 	while (1)
 	{
+
+		Input::cycleHistory();
+
 		while (SDL_PollEvent(&event))
 		{
 			EventManager::getInstance().registerEvent(event);
@@ -62,6 +66,8 @@ void GGE::startLoop()
 		}
 
 		Renderer::getInstance().renderClear();
+
+		Input::updateEdges();
 
 		Loop::getInstance().doTick();
 
