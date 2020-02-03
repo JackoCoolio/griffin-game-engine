@@ -7,6 +7,8 @@
 #include "GGE_event.h"
 #include "GGE_renderer.h"
 
+#include <chrono>
+
 int GGE::initialize(const char* title, const char* iconPath)
 {
 	std::cout << "Initializing SDL..." << std::endl;
@@ -54,6 +56,8 @@ void GGE::startLoop()
 	while (1)
 	{
 
+		std::chrono::time_point<std::chrono::high_resolution_clock> frameStart = std::chrono::high_resolution_clock::now();
+
 		Input::cycleHistory();
 
 		while (SDL_PollEvent(&event))
@@ -73,6 +77,14 @@ void GGE::startLoop()
 
 		Renderer::getInstance().render();
 
+		frameCount++;
+		time += std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - frameStart).count();
+
+		if (time > 1000000000)
+		{
+			std::cout << "FPS: " << frameCount << std::endl;
+			time = frameCount = 0;
+		}
 	}
 
 quit:
