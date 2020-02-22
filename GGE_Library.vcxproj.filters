@@ -51,9 +51,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GGE_camera.h">
-      <Filter>Header Files\graphics</Filter>
-    </ClInclude>
     <ClInclude Include="GGE_renderable.h">
       <Filter>Header Files\graphics</Filter>
     </ClInclude>
@@ -108,11 +105,11 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files\std</Filter>
     </ClInclude>
+    <ClInclude Include="GGE_camera.h">
+      <Filter>Header Files\component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GGE_camera.cpp">
-      <Filter>Source Files\graphics</Filter>
-    </ClCompile>
     <ClCompile Include="GGE_renderer.cpp">
       <Filter>Source Files\graphics</Filter>
     </ClCompile>
@@ -154,6 +151,9 @@
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files\std</Filter>
+    </ClCompile>
+    <ClCompile Include="GGE_camera.cpp">
+      <Filter>Source Files\component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
