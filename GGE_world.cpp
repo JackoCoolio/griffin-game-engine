@@ -3,6 +3,7 @@
 
 GGE::World::World()
 {
+	this->offset = { 0, 0 };
 }
 
 
@@ -42,5 +43,6 @@ void GGE::World::physicsUpdate()
 GGE::World GGE::World::loadFromJSON(const char* file)
 {
 	// TODO
-	return World();
+	World wld;
+	return wld;
 }

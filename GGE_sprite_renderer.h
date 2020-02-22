@@ -13,7 +13,7 @@ namespace GGE {
 	class SpriteRenderer : public Renderable, public Behavior
 	{
 	public:
-		SpriteRenderer(Shader &shader, Texture &texture);
+		SpriteRenderer(Node *node, Shader &shader, Texture &texture);
 		~SpriteRenderer();
 		void render(Camera &camera);
 		void init();

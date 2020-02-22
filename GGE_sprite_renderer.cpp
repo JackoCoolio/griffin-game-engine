@@ -4,14 +4,16 @@
 #include <iostream>
 #include "GGE_debug.h"
 #include "GGE_renderer.h"
+#include "GGE_node.h"
 
 #include <math.h>
 #include "glm/gtc/quaternion.hpp"
 #include "glm/gtx/quaternion.hpp"
 
-GGE::SpriteRenderer::SpriteRenderer(Shader &shader, Texture &texture) : Renderable()
+GGE::SpriteRenderer::SpriteRenderer(Node *node, Shader &shader, Texture &texture) : Renderable(), Behavior(node)
 {
 	std::cout << "Sprite Renderer constructed." << std::endl;
+	
 	this->shader = shader;
 	this->texture = texture;
 	Renderer::getInstance().addRenderable(this);
@@ -93,9 +95,9 @@ void GGE::SpriteRenderer::render(Camera &camera)
 	glUniform1i(glGetUniformLocation(shader.id, "tex"), 0);
 
 	glm::mat4 proj = glm::ortho(0.0f, 640.0f, 0.0f, 480.0f, -1.0f, 1.0f); // Transform to pixel-space
-	glm::mat4 camTranslate = glm::translate(glm::mat4(1.0f), glm::vec3(320 - camera.getOffset().x, 240 - camera.getOffset().y, 0)); // Camera
-	glm::mat4 camScale = glm::scale(glm::mat4(1.0f), glm::vec3(camera.getSize().x, camera.getSize().y, 1.0f));
-	glm::mat4 camRotation = glm::toMat4(glm::quat(cos(camera.getRotation() / 2), 0, 0, sin(camera.getRotation() / 2)));
+	glm::mat4 camTranslate = glm::translate(glm::mat4(1.0f), glm::vec3(320 - camera.getNode()->getOffset().x, 240 - camera.getNode()->getOffset().y, 0)); // Camera
+	glm::mat4 camScale = glm::scale(glm::mat4(1.0f), glm::vec3(camera.getScale().x, camera.getScale().y, 1.0f));
+	glm::mat4 camRotation = glm::toMat4(glm::quat(cos(camera.getNode()->getRotation() / 2), 0, 0, sin(camera.getNode()->getRotation() / 2)));
 
 	glm::mat4 view = camTranslate * camRotation * camScale;
 	//view *= glm::toMat4(glm::quat(cos(angle / 2), 0, 0, sin(angle / 2)));

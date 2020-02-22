@@ -6,7 +6,7 @@
 namespace GGE
 {
 
-	class World
+	class World : public Node
 	{
 	private:
 		std::vector<GGE::Node> nodes;
@@ -18,6 +18,8 @@ namespace GGE
 		void update(float delta);
 		void physicsUpdate();
 		static World loadFromJSON(const char* file);
+		Vector2 getOffset() const = delete;
+		Vector2 setOffset(Vector2 offset) = delete;
 	};
 
 }

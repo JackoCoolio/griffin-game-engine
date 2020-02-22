@@ -1,20 +1,20 @@
 #pragma once
 
-#include "GGE_node.h"
+#include "GGE_behavior.h"
 #include "GGE_vector.h"
 
 namespace GGE
 {
 
-	class Camera : public Node
+	class Camera : public Behavior
 	{
 	private:
-		Vector2 size;
-		float rotation;
+		Vector2 scale;
 	public:
-		Camera(Vector2 offset = { 0, 0 }, Vector2 size = { 1, 1 }, float rotation = 0.0f);
-		Vector2 getSize() const;
-		float getRotation() const;
+		Camera(Node *node, Vector2 scale = { 1, 1 });
+		void setScale(Vector2 scale);
+		Vector2 getScale() const;
+		std::string getType() const;
 	};
 
 }

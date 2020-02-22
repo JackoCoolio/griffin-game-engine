@@ -9,17 +9,22 @@ namespace GGE
 {
 	class Node
 	{
-	protected:
+	public:
+		float rotation;
 		Vector2 offset;
 		std::map<std::string, Behavior*> behaviors;
 		std::vector<Node> nodes;
+		Node *parent;
 	public:
-		Node(Vector2 offset = { 0, 0 });
+		Node(Node *parent = nullptr, Vector2 offset = { 0, 0 });
 		Behavior *getBehavior(std::string type);
-		void addBehavior(Behavior *beh);
-		void init();
-		void update(float delta);
-		void physicsUpdate();
+		virtual void addBehavior(Behavior *beh);
+		virtual void init();
+		virtual void update(float delta);
+		virtual void physicsUpdate();
+		void setRotation(float rotation);
+		float getRotation() const;
+		void setOffset(Vector2 offset);
 		Vector2 getOffset() const;
 	};
 

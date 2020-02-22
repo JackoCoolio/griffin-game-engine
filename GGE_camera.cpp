@@ -1,17 +1,20 @@
 #include "stdafx.h"
+
 #include "GGE_camera.h"
 
-GGE::Camera::Camera(Vector2 offset, Vector2 size, float rotation) : size(size), rotation(rotation) 
+GGE::Camera::Camera(GGE::Node *node, Vector2 scale) : Behavior(node), scale(scale) {}
+
+void GGE::Camera::setScale(Vector2 scale)
 {
-	this->offset = offset;
+	this->scale = scale;
 }
 
-GGE::Vector2 GGE::Camera::getSize() const
+GGE::Vector2 GGE::Camera::getScale() const
 {
-	return size;
+	return scale;
 }
 
-float GGE::Camera::getRotation() const
+std::string GGE::Camera::getType() const
 {
-	return rotation;
+	return "GGE::Camera";
 }
